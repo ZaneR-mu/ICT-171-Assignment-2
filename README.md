@@ -35,6 +35,7 @@ reach the web server instead of needing to know the long and random string of nu
 technical setup is to create a new virtual host for the domain which can be done by returning to the console of the instance.
 
 At this point enter sudo nano /etc/apache2/sites-available/zanemurdoch.conf and paste the following into the new blank file:
+
 <VirtualHost *:80>
     ServerName zanemurdoch.ddns.net
     DocumentRoot /var/www/html
