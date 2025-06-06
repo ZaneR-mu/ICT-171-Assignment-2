@@ -20,9 +20,177 @@ downloading run sudo nano /var/www/html/index.html in the command and this will 
 Initially this will be filled with an arbitary placeholder file for the apache2 system to verify that the server can run properly and this will need to be completely erased, 
 simply delete all of the lines of this file and replace them with:
 
+!doctype html>
+<html>
+<head>
+        <meta charset="UTF-8">
+        <title>Serendipity.net</title>
+<style>
+
+.content {
+padding: 20px;
+text-align: center;
+}
+
+.gallery {
+display: grid;
+grid-template-columns: repeat(4, 1fr);
+padding: 20px;
+gap: 20px;
+max-width: 1200px;
+text-align: center;
+margin: 0 auto;
+}
+
+html, body{
+margin: 0;
+padding: 0;
+display: flex;
+flex-direction: column;
+background-color: #1b61c2;
+font-family: Arial, sans-serif;
+height: 100%;
+overflow-x: hidden;
+min-height: 100vh;
+}
+
+.container {
+flex: 1;
+display: flex;
+flex-direction: column;
+align-items: center;
+text-align: center;
+width: 100%;
+}
+
+img {
+width: 100px;
+border-radius: 0px;
+margin-bottom: 0px;
+}
+
+h1 {
+margin-top: 5px;
+margin-bottom: 5px;
+}
+
+p {
+margin-top: 5px;
+margin-bottom: 5px;
+}
+
+.title-header {
+font-family: 'Bell MT', serif;
+margin-top: 5px;
+margin-bottom: 5px;
+}
+
+.banner-top {
+width: 100%;
+background-color: #f0f0f0;
+text-align: center;
+padding: 15px 10px;
+font-weight: bold;
+border-bottom: 4px solid;
+}
+
+.item {
+background-color: #f8f8f8;
+padding: 10px;
+border-radius: 10px;
+box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.item img {
+width: 120px;
+height: 120px;
+object-fit: cover;
+display: block;
+border-radius: 8px;
+margin: 0 auto;
+}
+
+.caption {
+margin-top: 10px;
+font-size: 0.95em;
+}
+
+.footer a {
+color: inherit;
+text-decoration: underline;
+}
+
+.footer {
+width: 100%;
+background-color: #f0f0f0;
+text-align: center;
+font-size: 10px;
+margin-top: auto;
+padding: 15 px 10px;
+border-top: 4px solid;
+}
+
+
+</style>
+</head>
+<body>
+ <div class="banner-top">
+        <img src="treelogo.png" alt="Tree Logo"/>
+        <h1 class="title-header">Serendipity</h1>
+        </div>
+        <div class="container">
+        <h1>Welcome to our Marketplace!</h1>
+        <div class="content">
+        <div class="gallery">
+        <div class="item">
+        <img src="f1.png" alt="Image 1">
+        <div class="caption">$10 – submitted by @space_cowboy35</div>
+        </div>
+        <div class="item">
+        <img src="f2.png" alt="Image 2">
+        <div class="caption">$15 – submitted by @winnersgrinners21</div>
+        </div>
+        <div class="item">
+        <img src="f3.png" alt="Image 3">
+        <div class="caption">$8 – submitted by @felixmuncher1034</div>
+        </div>
+        <div class="item">
+        <img src="f4.png" alt="Image 4">
+        <div class="caption">$12 – submitted by @definitelyrealusers84</div>
+        </div>
+        <div class="item">
+        <img src="f5.png" alt="Image 5">
+        <div class="caption">$9 – submitted by @sisi_cutie12</div>
+        </div>
+        <div class="item">
+        <img src="f6.png" alt="Image 6">
+        <div class="caption">$11 – submitted by @dosjarvis99</div>
+        </div>
+        <div class="item">
+        <img src="f7.png" alt="Image 7">
+        <div class="caption">$20 – submitted by @hero.brian02</div>
+        </div>
+        <div class="item">
+        <img src="f8.png" alt="Image 8">
+        <div class="caption">$14 – submitted by @freddyfaznuggets</div>
+        </div>
+        </div>
+        </div>
+        <h1>Feel free to browse and stay a while😊</h1>
+        <div class="footer">
+        <p style="font-size: 10px;">This website is professionally licensed under the Apache License version 2.0</p>
+        <p style="font-size: 10px;"><a href="https://www.apache.org/licenses/LICENSE-2.0" target="_blank" style="color: inherit; text-decoration: underline; font-size: 10px; ">Apache License, Version 2.0</a></p>
+        <p style="font-size: 10px;">&copy; 2025 Zane Murdoch. All rights reserved.</p>
+        </div>
+</body>
+</html>
+
+When this process is complete open the google drive https://drive.google.com/drive/folders/1ILxOmm8fDX43egnj-LMD00RigRtqmde0?usp=drive_link and download the files of the photos. You will need to mount these manually so enter terminal on your host device and run scp -i "/Path/to/your/pem/file/pemfilename" ~/path/to/where/you/downloaded/the/files/filename ubuntu@ec2-3-106-75-55.ap-southeast-2.compute.amazonaws.com:~
+Please note that the string of numbers after ubuntu@ec2 in this line may be different to the one you find on your instance page as they refresh occasionally so follow the ones noted on the instance details.
+And then navigate to the ec2 console and run sudo mv ~/filename /var/www/html/ for each one of the files.
 
 Once the html structure and elements have been replicated and implemented you will need to create the DNS from noip.com. This is a relatively easy and self explanatory process 
-but nonetheless the procedure is as follows:
+But nonetheless the procedure is as follows:
 
 Simply press the create hostname button as you log in (or as otherwise prompted to) and follow the onscreen instructions to create the free Dynamic Domain Name System. 
 Set the domain name to zanemurdoch.ddns.net as that is what the html link is appropriately named, use the default instructions for the steps presented in the creation of 
