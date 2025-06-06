@@ -7,25 +7,37 @@ This readme file can also be used to functionally and easily replicate my web se
 and code listed below:
 
 As the first step to produce the web server I created an Amazon EC2 instance on the free plan of service, the management console of EC2 can be found at this link : 
-http://aws.amazon.com/ec2/. From here navigate to EC2 services and then the instances tab on the left. After this point simply follow the on screen instructions of Amazon EC2 leaving most details to default
+```
+http://aws.amazon.com/ec2/.
+```
+From here navigate to EC2 services and then the instances tab on the left. After this point simply follow the on screen instructions of Amazon EC2 leaving most details to default
 and select a free tier plan. At some point in its configuration you will be prompted to configure a security group, follow the on screen instructions and name it something easy 
 such as "ssh-and-web", after this you will need to add the HTTP rule as this is the internet protocol that the server runs on. After this review and launch and this first step will
 be completed. As the new root user of the web server you may want to create a key pair, give it a name that you will remember and save it somewhere that you won't lose easily such
 as a usb drive or on the cloud as the server may become unretrievable to you if you lose it.
 
-Once the specifications of the web server has been completed, launch the server and connect with the EC2 client. In the terminal that appears you will now need to install apache2 
-which is the software that the server runs on, however before this run sudo apt update to ensure that the client is on the current repository. After this to install apache2 run the
-command line sudo apt install apache2. This will retrieve and install all of the necessary information of the software that is required to run the server. Once this is finished
-downloading run sudo nano /var/www/html/index.html in the command and this will open the index html file of the server which must be edited to the web server's specifications.
-Initially this will be filled with an arbitary placeholder file for the apache2 system to verify that the server can run properly and this will need to be completely erased, 
-simply delete all of the lines of this file and replace them with:
+Once the specifications of the web server has been completed, launch the server and connect with the EC2 client. In the terminal that appears you will now need to install apache2 which is the software that the server runs on, however before this run sudo apt update to ensure that the client is on the current repository. After this to install apache2 run the command line 
+```
+sudo apt install apache2.
+```
+This will retrieve and install all of the necessary information of the software that is required to run the server. Once this is finished downloading run 
+```
+sudo nano /var/www/html/index.html
+```
+This will open the index html file of the server which must be edited to the web server's specifications.
+Initially this will be filled with an arbitary placeholder file for the apache2 system to verify that the server can run properly and this will need to be completely erased, simply delete all of the lines of this file and replace them with:
 
-!doctype html>
-<html>
-<head>
-        <meta charset="UTF-8">
-        <title>Serendipity.net</title>
-<style>
+<details>
+<summary>Click to expand and copy the escaped version</summary>
+
+```markdown
+```html
+&lt;!doctype html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Serendipity.net&lt;/title&gt;
+&lt;style&gt;
 
 .content {
 padding: 20px;
@@ -42,7 +54,7 @@ text-align: center;
 margin: 0 auto;
 }
 
-html, body{
+html, body {
 margin: 0;
 padding: 0;
 display: flex;
@@ -126,68 +138,79 @@ background-color: #f0f0f0;
 text-align: center;
 font-size: 10px;
 margin-top: auto;
-padding: 15 px 10px;
+padding: 15px 10px;
 border-top: 4px solid;
 }
 
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div class="banner-top"&gt;
+    &lt;img src="treelogo.png" alt="Tree Logo"/&gt;
+    &lt;h1 class="title-header"&gt;Serendipity&lt;/h1&gt;
+&lt;/div&gt;
 
-</style>
-</head>
-<body>
- <div class="banner-top">
-        <img src="treelogo.png" alt="Tree Logo"/>
-        <h1 class="title-header">Serendipity</h1>
-        </div>
-        <div class="container">
-        <h1>Welcome to our Marketplace!</h1>
-        <div class="content">
-        <div class="gallery">
-        <div class="item">
-        <img src="f1.png" alt="Image 1">
-        <div class="caption">$10 – submitted by @space_cowboy35</div>
-        </div>
-        <div class="item">
-        <img src="f2.png" alt="Image 2">
-        <div class="caption">$15 – submitted by @winnersgrinners21</div>
-        </div>
-        <div class="item">
-        <img src="f3.png" alt="Image 3">
-        <div class="caption">$8 – submitted by @felixmuncher1034</div>
-        </div>
-        <div class="item">
-        <img src="f4.png" alt="Image 4">
-        <div class="caption">$12 – submitted by @definitelyrealusers84</div>
-        </div>
-        <div class="item">
-        <img src="f5.png" alt="Image 5">
-        <div class="caption">$9 – submitted by @sisi_cutie12</div>
-        </div>
-        <div class="item">
-        <img src="f6.png" alt="Image 6">
-        <div class="caption">$11 – submitted by @dosjarvis99</div>
-        </div>
-        <div class="item">
-        <img src="f7.png" alt="Image 7">
-        <div class="caption">$20 – submitted by @hero.brian02</div>
-        </div>
-        <div class="item">
-        <img src="f8.png" alt="Image 8">
-        <div class="caption">$14 – submitted by @freddyfaznuggets</div>
-        </div>
-        </div>
-        </div>
-        <h1>Feel free to browse and stay a while😊</h1>
-        <div class="footer">
-        <p style="font-size: 10px;">This website is professionally licensed under the Apache License version 2.0</p>
-        <p style="font-size: 10px;"><a href="https://www.apache.org/licenses/LICENSE-2.0" target="_blank" style="color: inherit; text-decoration: underline; font-size: 10px; ">Apache License, Version 2.0</a></p>
-        <p style="font-size: 10px;">&copy; 2025 Zane Murdoch. All rights reserved.</p>
-        </div>
-</body>
-</html>
+&lt;div class="container"&gt;
+    &lt;h1&gt;Welcome to our Marketplace!&lt;/h1&gt;
+    &lt;div class="content"&gt;
+        &lt;div class="gallery"&gt;
+            &lt;div class="item"&gt;
+                &lt;img src="f1.png" alt="Image 1"&gt;
+                &lt;div class="caption"&gt;$10 – submitted by @space_cowboy35&lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class="item"&gt;
+                &lt;img src="f2.png" alt="Image 2"&gt;
+                &lt;div class="caption"&gt;$15 – submitted by @winnersgrinners21&lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class="item"&gt;
+                &lt;img src="f3.png" alt="Image 3"&gt;
+                &lt;div class="caption"&gt;$8 – submitted by @felixmuncher1034&lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class="item"&gt;
+                &lt;img src="f4.png" alt="Image 4"&gt;
+                &lt;div class="caption"&gt;$12 – submitted by @definitelyrealusers84&lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class="item"&gt;
+                &lt;img src="f5.png" alt="Image 5"&gt;
+                &lt;div class="caption"&gt;$9 – submitted by @sisi_cutie12&lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class="item"&gt;
+                &lt;img src="f6.png" alt="Image 6"&gt;
+                &lt;div class="caption"&gt;$11 – submitted by @dosjarvis99&lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class="item"&gt;
+                &lt;img src="f7.png" alt="Image 7"&gt;
+                &lt;div class="caption"&gt;$20 – submitted by @hero.brian02&lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class="item"&gt;
+                &lt;img src="f8.png" alt="Image 8"&gt;
+                &lt;div class="caption"&gt;$14 – submitted by @freddyfaznuggets&lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;h1&gt;Feel free to browse and stay a while😊&lt;/h1&gt;
 
-When this process is complete open the google drive https://drive.google.com/drive/folders/1ILxOmm8fDX43egnj-LMD00RigRtqmde0?usp=drive_link and download the files of the photos. You will need to mount these manually so enter terminal on your host device and run scp -i "/Path/to/your/pem/file/pemfilename" ~/path/to/where/you/downloaded/the/files/filename ubuntu@ec2-3-106-75-55.ap-southeast-2.compute.amazonaws.com:~
+    &lt;div class="footer"&gt;
+        &lt;p&gt;This website is professionally licensed under the Apache License version 2.0&lt;/p&gt;
+        &lt;p&gt;&lt;a href="https://www.apache.org/licenses/LICENSE-2.0" target="_blank"&gt;Apache License, Version 2.0&lt;/a&gt;&lt;/p&gt;
+        &lt;p&gt;&copy; 2025 Zane Murdoch. All rights reserved.&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+
+```
+</details>
+        
+When this process is complete open the google drive https://drive.google.com/drive/folders/1ILxOmm8fDX43egnj-LMD00RigRtqmde0?usp=drive_link and download the files of the photos. You will need to mount these manually so enter terminal on your host device and run 
+```
+scp -i "/Path/to/your/pem/file/pemfilename" ~/path/to/where/you/downloaded/the/files/filename ubuntu@ec2-3-106-75-55.ap-southeast-2.compute.amazonaws.com:~
+```
 Please note that the string of numbers after ubuntu@ec2 in this line may be different to the one you find on your instance page as they refresh occasionally so follow the ones noted on the instance details.
-And then navigate to the ec2 console and run sudo mv ~/filename /var/www/html/ for each one of the files.
+And then navigate to the ec2 console and run 
+```
+sudo mv ~/filename /var/www/html/ for each one of the files.
+```
 
 Once the html structure and elements have been replicated and implemented you will need to create the DNS from noip.com. This is a relatively easy and self explanatory process 
 But nonetheless the procedure is as follows:
@@ -202,27 +225,33 @@ copy this number into the no-ip dns under the modify tab and this will connect t
 reach the web server instead of needing to know the long and random string of numbers that is an ip address. The final change to the server that will virtually complete all of its
 technical setup is to create a new virtual host for the domain which can be done by returning to the console of the instance.
 
-At this point enter sudo nano /etc/apache2/sites-available/zanemurdoch.conf and paste the following into the new blank file:
+At this point enter 
+```
+sudo nano /etc/apache2/sites-available/zanemurdoch.conf and paste the following into the new blank file:
+```
 
+```
 <VirtualHost *:80>
     ServerName zanemurdoch.ddns.net
     DocumentRoot /var/www/html
-
     <Directory /var/www/html>
         AllowOverride All
         Require all granted
     </Directory>
 </VirtualHost>
 
+```
 Once this is done enable the new site and disable the old default settings:
-
+```
 sudo a2ensite zanemurdoch.conf
-
+```
+```
 sudo a2dissite 000-default.conf
-
+```
 and reload the page
+```
 sudo systemctl reload apache2
-
+```
 Once you visit this page the domain and web server will work exactly as intended and will be replicated with almost 100% similarity to the original instance.
 
 Thanks for reading this guide.
